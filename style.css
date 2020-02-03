@@ -154,7 +154,7 @@ body {
   gap: 4%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "clear root mod div"
+    "clear backspace exp div"
     "seven eight nine mul"
     "four five six sub"
     "one two three add"
@@ -183,7 +183,7 @@ body {
 
 #calc:hover .calc-button:active {
   transform: translateY(1px);
-  border-bottom: 4px solid rgb(27, 27, 27);
+  border-bottom: 5px solid rgb(27, 27, 27);
   transition: all 0.2s cubic-bezier(0, 1, 0, 1);
 }
 
@@ -203,7 +203,7 @@ body {
 
 #calc:hover .input:active {
   transform: translateY(1px);
-  border-bottom: 4px solid rgb(44, 44, 44);
+  border-bottom: 5px solid rgb(44, 44, 44);
   transition: all 0.2s cubic-bezier(0, 1, 0, 1);
 }
 

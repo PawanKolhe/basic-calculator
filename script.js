@@ -5,12 +5,13 @@ let calc = {
   num2Active: false,
   operator: '+',
   expression: '',
-  result: '',
+  result: '0',
   inputs: document.querySelectorAll('.input'),
   action: {
     active: true,
     operators: document.querySelectorAll('.operator')
   },
+  backspace: document.querySelector('.calc-button[data-name="backspace"]'),
   equal: document.querySelector('.calc-button[data-name="equal"]'),
   equalLast: false,
   dot: document.querySelector('.calc-button[data-name="dot"]'),
@@ -55,7 +56,7 @@ const clearDisplay = () => {
   calc.num2Active = false;
   calc.operator = '+';
   calc.expression = '';
-  calc.result = '';
+  calc.result = '0';
   calc.action.active = true;
   calc.equalLast = false;
   updateDisplayExpression();
@@ -105,7 +106,7 @@ calc.inputs.forEach(element => {
       }
       calc.num2 += this.value;
     }
-    updateDisplayMain()
+    updateDisplayMain();
   });
 });
 
@@ -179,21 +180,38 @@ calc.action.operators.forEach(element => {
   });
 });
 
+// 🡄 button
+calc.backspace.addEventListener('click', () => {
+  if(!calc.num2Active) {
+    if(calc.num1.length > 1) {
+      calc.num1 = calc.num1.substring(0, calc.num1.length-1);
+    } else {
+      calc.num1 = '0';
+    }
+  } else {
+    if(calc.num2.length > 1) {
+      calc.num2 = calc.num2.substring(0, calc.num2.length-1);
+    } else {
+      calc.num2 = '0';
+    }
+  }
+  updateDisplayMain();
+});
 
-// = Button
+// = button
 calc.equal.addEventListener('click', () => {
   calc.equalLast = true;
 
-  // update expression and perform calculation
-  if(calc.num2 == '') {
-    calc.expression = `${calc.result} ${calc.operator} ${calc.num1}`;
-    updateDisplayExpression();
-    calc.result = calculate(changeSymbolsToNormal(calc.operator), calc.result, calc.num1);
-  } else {
-    calc.expression = `${calc.result} ${calc.operator} ${calc.num2}`;
-    updateDisplayExpression();
-    calc.result = calculate(changeSymbolsToNormal(calc.operator), calc.num1, calc.num2);
+  if(calc.num2 == '0') {
+    calc.num2 = calc.result;
   }
+
+  // update expression
+  calc.expression = `${calc.result} ${calc.operator} ${calc.num2}`;
+  updateDisplayExpression();
+
+  // perform calculation
+  calc.result = calculate(changeSymbolsToNormal(calc.operator), calc.num1, calc.num2);
   
   // updates main display to show result
   calc.displayMain.innerText = calc.result.toLocaleString('en-US', {
@@ -206,7 +224,7 @@ calc.equal.addEventListener('click', () => {
   calc.num2Active = true;
 });
 
-// C Button
+// C button
 calc.clear.addEventListener('click', () => {
   clearDisplay();
 });
