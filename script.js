@@ -37,12 +37,12 @@ const updateDisplayExpression = () => {
 }
 const updateDisplayMain = () => {
   if(!calc.num2Active) {
-    calc.displayMain.innerText = calc.num1.toLocaleString('en-US', {
+    calc.displayMain.innerText = calc.num1.toLocaleString(navigator.language, {
       minimumFractionDigits: 0,
       maximumFractionDigits: 8
     });
   } else {
-    calc.displayMain.innerText = calc.num2.toLocaleString('en-US', {
+    calc.displayMain.innerText = calc.num2.toLocaleString(navigator.language, {
       minimumFractionDigits: 0,
       maximumFractionDigits: 8
     });
@@ -160,7 +160,7 @@ calc.action.operators.forEach(element => {
       updateDisplayExpression();
   
       calc.result = calculate(changeSymbolsToNormal(calc.operator), calc.num1, calc.num2);
-      calc.displayMain.innerText = calc.result.toLocaleString('en-US', {
+      calc.displayMain.innerText = calc.result.toLocaleString(navigator.language, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 8
       });
@@ -214,7 +214,7 @@ calc.equal.addEventListener('click', () => {
   calc.result = calculate(changeSymbolsToNormal(calc.operator), calc.num1, calc.num2);
   
   // updates main display to show result
-  calc.displayMain.innerText = calc.result.toLocaleString('en-US', {
+  calc.displayMain.innerText = calc.result.toLocaleString(navigator.language, {
     minimumFractionDigits: 0,
     maximumFractionDigits: 8
   });
