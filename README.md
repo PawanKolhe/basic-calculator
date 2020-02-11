@@ -3,6 +3,10 @@ This basic calculator is more than just basic.
 
 ![Basic Calculator](https://i.imgur.com/enb1at8.png)
 
+## FEATURES
+- Background image changes everytime webpage is loaded.
+- Tried to mimic the working of Windows 10 calculator.
+
 ## TO DO
 - Add ability to use the computer keyboard to give instructions
 - Add more operators
