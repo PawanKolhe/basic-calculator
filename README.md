@@ -1,14 +1,13 @@
 ![Basic Calculator](https://i.imgur.com/enb1at8.png)
 
-# LINK TO NEW REPO
-https://github.com/PawanKolhe/calc-2000-chrome-extension
-
 # CALC 2000 - The Basic Calulator
 This basic calculator is more than just basic.
 
 ## CHROME EXTENSION
 #### Now available as a chrome extension:
 https://chrome.google.com/webstore/detail/calc-2000/mbicgfplgdbkhealkcljgplahbjjmnmo?authuser=1&hl=en
+#### Repo
+https://github.com/PawanKolhe/calc-2000-chrome-extension
 
 ## FEATURES
 - Background image changes everytime webpage is loaded.
